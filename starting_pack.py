@@ -78,7 +78,7 @@ You should always call this at the start of your node, to:
 """
 async def start() -> None:
     global nc  # noqa: PLW0603
-    nats_url = os.environ.get("NATS_URL") or "nats://localhost:4222"
+    nats_url = os.environ.get("NATS_URL") or "nats://127.0.0.1:4222"
     try:
         nc = await nats.connect(nats_url)
     except ConnectionRefusedError:
