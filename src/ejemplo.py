@@ -1,5 +1,5 @@
 from msgspec import Struct
-from src.starting_pack import encoder, subscribe, timer, publish, start
+from starting_pack import encoder, subscribe, timer, publish, start
 import asyncio
 
 # así se definen los mensajes que se envian por los topics, lo más cómodo

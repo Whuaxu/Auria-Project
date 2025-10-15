@@ -3,7 +3,7 @@ import time
 from typing import List
 import msgspec
 from msgspec import Struct
-from src.starting_pack import subscribe, publish, timer, start
+from starting_pack import subscribe, publish, timer, start
 import asyncio
 from messages import VehicleState, Controls, Cone, Cones
 
