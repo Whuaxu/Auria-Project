@@ -2,7 +2,7 @@ import math
 from typing import List, Optional
 import numpy as np
 from msgspec import Struct
-from starting_pack import subscribe, start, timer
+from src.starting_pack import subscribe, start, timer
 from messages import Controls, VehicleState, Cone, Cones
 import matplotlib.pyplot as plt
 import asyncio
