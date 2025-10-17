@@ -23,10 +23,14 @@ WHEEL_BASE = 2.5
 state = VehicleState(x=18.0, y=0.0, yaw=math.pi, speed=0.0, timestamp=time.time())
 current_controls = Controls()
 
-# Generar conos en forma de óvalo
+# Generar conos en forma de óvalo con mayor separación entre conos
+# Ajusta NUM_CONES para controlar el espacio entre conos (menos conos -> más separación)
+NUM_CONES = 10
+R_X = 20.0  # semieje en x (metros)
+R_Y = 15.0   # semieje en y (metros)
 cones = Cones(cones=[
-    Cone(x=20.0 * math.cos(a), y=8.0 * math.sin(a))
-    for a in [i / 20.0 * 2 * math.pi for i in range(20)]
+    Cone(x=R_X * math.cos(a), y=R_Y * math.sin(a))
+    for a in [(i / NUM_CONES) * 2 * math.pi for i in range(NUM_CONES)]
 ])
 
 
