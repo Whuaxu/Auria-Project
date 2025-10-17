@@ -47,7 +47,7 @@ async def update_plot():
         ax.set_aspect("equal", "box")
         ax.set_xlim(-30, 30)
         ax.set_ylim(-20, 20)
-        ax.set_title("[LOG] Simulador NATS - Visualización en tiempo real")
+        ax.set_title(" Simulador NATS - Visualización en tiempo real")
         ax.set_xlabel("X (m)")
         ax.set_ylabel("Y (m)")
 
@@ -68,7 +68,7 @@ async def update_plot():
 
     if latest_state is not None:
         s = latest_state
-        # Coche como triángulo
+        # Coche como linea triangular
         L = 1.5
         W = 0.7
         pts = np.array([
@@ -81,7 +81,10 @@ async def update_plot():
             [math.sin(s.yaw),  math.cos(s.yaw)]
         ])
         trans = (R @ pts.T).T + np.array([s.x, s.y])
-        update_plot.car_plot.set_data(trans[:, 0], trans[:, 1])
+        # Cerrar el triángulo añadiendo el primer punto al final para que se dibuje correctamente
+        xs = np.append(trans[:, 0], trans[0, 0])
+        ys = np.append(trans[:, 1], trans[0, 1])
+        update_plot.car_plot.set_data(xs, ys)
 
         # Línea de dirección
         dir_line = np.array([
@@ -92,7 +95,8 @@ async def update_plot():
 
         # Texto con estado
         update_plot.txt.set_text(
-            f"Velocidad: {s.speed:.2f} m/s\nPosición: ({s.x:.1f}, {s.y:.1f})"
+            f"Velocidad: {s.speed:.2f} m/s\n"
+            f"Posición: ({s.x:.1f}, {s.y:.1f})"
         )
 
     # Redibujar
