@@ -1,4 +1,4 @@
-# Auria-Project — Simulador de vehículo (NATS producer/subscriber)
+# Simulador de vehículo (NATS producer/subscriber)
 
 Resumen
 -------
