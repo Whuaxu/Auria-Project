@@ -88,5 +88,5 @@ Depuración rápida
 Consejos finales
 ----------------
 - Empieza por levantar NATS y ejecutar el simulador; luego añade visualizador y finalmente el controlador autónomo.
-- Documenta cambios y mantén `requirements.txt` actualizado.
+
 
